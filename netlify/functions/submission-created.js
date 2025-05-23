@@ -1,8 +1,6 @@
 // netlify/functions/submission-created.js
 
-// Usar require para CommonJS, que es a menudo el entorno por defecto en Netlify Functions para .js
-const { Octokit } = require("@octokit/rest");
-const { Base64 } = require("js-base64"); // Asegúrate de que esté instalado: npm install js-base64
+const { Base64 } = require("js-base64");
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const REPO_OWNER = process.env.GITHUB_REPO_OWNER;
@@ -10,25 +8,11 @@ const REPO_NAME = process.env.GITHUB_REPO_NAME;
 const REPO_BRANCH = process.env.GITHUB_REPO_BRANCH || "main";
 const FORM_NAME_PREFIX = process.env.NETLIFY_FORM_NAME_PREFIX || "comments-";
 
-// Inicializar Octokit globalmente.
-let octokit;
-try {
-  octokit = new Octokit({ auth: GITHUB_TOKEN });
-} catch (initError) {
-  console.error("Failed to initialize Octokit:", initError);
-  // Si Octokit no se puede inicializar, la función fallará al ejecutarse.
-}
-
 exports.handler = async (event) => {
-  // Verificar si Octokit se inicializó correctamente
-  if (!octokit) {
-    console.error("Octokit instance is not available. Aborting function.");
-    return {
-      statusCode: 500,
-      body: "Internal server error: Could not initialize GitHub client.",
-    };
-  }
-
+  // Carga dinámica de Octokit
+  const { Octokit } = await import("@octokit/rest");
+  const octokit = new Octokit({ auth: GITHUB_TOKEN });
+  
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
@@ -36,14 +20,12 @@ exports.handler = async (event) => {
   let payload;
   try {
     payload = JSON.parse(event.body).payload;
-    // Según la estructura del event, el payload relevante suele estar en event.body.payload
   } catch (error) {
     console.error("Error parsing event body:", error);
     return { statusCode: 400, body: "Malformed request body." };
   }
   
   const { data, form_name, id: submissionId } = payload;
-
   if (!form_name || !form_name.startsWith(FORM_NAME_PREFIX)) {
     console.log(`Form name "${form_name}" does not match prefix "${FORM_NAME_PREFIX}". Skipping.`);
     return {
@@ -82,10 +64,8 @@ exports.handler = async (event) => {
   };
 
   const commentsFilePath = `_data/comments/${article_slug}.json`;
-  // Convertimos article_slug a cadena antes de aplicar replace para asegurarnos de que sea válido
   const sanitizedSlug = String(article_slug).replace(/[^a-z0-9]/gi, "-");
   const newBranchName = `comment-${sanitizedSlug}-${commentData.id}`;
-
   let branchCreated = false;
 
   try {
@@ -171,7 +151,6 @@ Netlify Submission ID: ${submissionId || "N/A"}
         pr_url: pullRequest.html_url,
       }),
     };
-
   } catch (error) {
     console.error("Error processing comment submission:", error.message);
     if (error.stack) console.error(error.stack);
