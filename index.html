@@ -679,6 +679,19 @@
         margin-bottom: 10px;
     }
 
+.articulos-layout, .retos-layout {
+        flex-direction: column;
+    }
+
+    .articulos-main, .retos-main {
+        order: -1; /* Mantener el contenido principal arriba */
+    }
+
+    .articulos-sidebar, .retos-sidebar {
+        order: 1; /* Mover los bloques al final */
+        width: 100%;
+    }
+
     .hamburger {
     display: flex;
     align-items: center;
