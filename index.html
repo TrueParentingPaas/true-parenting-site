@@ -1457,31 +1457,57 @@
     });
     </script>
 <script>
-  // Ajusta la URL según donde se publique tu archivo
-  const commentsUrl = 'https://raw.githubusercontent.com/TrueParentingPaas/true-parenting-site/main/_data/comments/AMN1.json';
+  // Función para cargar comentarios
+  function loadComments() {
+    // USA TU DOMINIO DE NETLIFY en lugar de GitHub Raw para evitar caché
+    const commentsUrl = 'https://tu-sitio.netlify.app/_data/comments/AMN1.json';
+    
+    fetch(commentsUrl + '?t=' + Date.now()) // Cache busting con timestamp
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('No se pudo cargar el archivo de comentarios');
+        }
+        return response.json();
+      })
+      .then(comments => {
+        const container = document.getElementById('comments-AMN1');
+        if (comments && comments.length > 0) {
+          // Renderiza cada comentario; adapta el formato HTML a tus necesidades
+          container.innerHTML = comments.map(comment => `
+            <div class="comment" style="border-bottom: 1px solid #eee; padding: 15px 0; margin-bottom: 15px;">
+              <div style="margin-bottom: 8px;">
+                <strong style="color: #333;">${escapeHtml(comment.name)}</strong> 
+                <span style="color: #666; font-size: 0.9em;">${new Date(comment.date).toLocaleString()}</span>
+              </div>
+              <p style="margin: 0; line-height: 1.5; color: #444;">${escapeHtml(comment.comment).replace(/\n/g, '<br>')}</p>
+            </div>
+          `).join('');
+        } else {
+          container.innerHTML = '<p style="color: #666; font-style: italic;">No hay comentarios aún. ¡Sé el primero en comentar!</p>';
+        }
+      })
+      .catch(error => {
+        console.error('Error cargando comentarios:', error);
+        const container = document.getElementById('comments-AMN1');
+        container.innerHTML = '<p style="color: #999;">Los comentarios no están disponibles en este momento.</p>';
+      });
+  }
 
-  fetch(commentsUrl)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('No se pudo cargar el archivo de comentarios');
-      }
-      return response.json();
-    })
-    .then(comments => {
-      const container = document.getElementById('comments-AMN1');
-      // Renderiza cada comentario; adapta el formato HTML a tus necesidades
-      container.innerHTML = comments.map(comment => `
-        <div class="comment">
-          <strong>${comment.name}</strong> <span>${new Date(comment.date).toLocaleString()}</span>
-          <p>${comment.comment}</p>
-        </div>
-      `).join('');
-    })
-    .catch(error => {
-      console.error('Error cargando comentarios:', error);
-      const container = document.getElementById('comments-AMN1');
-      container.innerHTML = '<p>Error cargando comentarios.</p>';
-    });
+  // Función para escapar HTML y prevenir XSS
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // Cargar comentarios al cargar la página
+  document.addEventListener('DOMContentLoaded', loadComments);
+
+  // Opcional: Recargar comentarios después de enviar el formulario
+  document.querySelector('form[name="comments-AMN1"]').addEventListener('submit', function(e) {
+    // Recargar comentarios después de 3 segundos para mostrar el nuevo comentario
+    setTimeout(loadComments, 3000);
+  });
 </script>
 </body>
 </html>
