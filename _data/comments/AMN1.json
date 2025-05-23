@@ -1,14 +1,14 @@
 [
   {
     "id": "1747969524534",
-    "name": "Hijo regresa",
-    "comment": "a la intimida",
+    "name": "Control de Comentarios",
+    "comment": "Hola, puedes comentar y tu mensaje aparecerá luego de ser revisado :)",
     "date": "2025-05-23T03:05:24.534Z"
   },
   {
     "id": "1747970722511",
-    "name": "Parece ser que ya",
+    "name": "Control de Comentarios",
     "comment": "este es un mensaje de prueba",
-    "date": "2025-05-23T03:25:22.511Z"
+    "date": "Hola, puedes comentar y tu mensaje aparecerá luego de ser revisado :)"
   }
 ]
