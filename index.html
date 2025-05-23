@@ -660,24 +660,168 @@
             /* margin: 0 auto; /* Si width es auto, para centrarlo */
             /* display: block; /* Si width es auto, para centrarlo con margin */
         }
-        /* Responsive adjustments - basic */
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; align-items: flex-start;}
-            .logo-nav { flex-direction: column; align-items: flex-start; width: 100%;}
-            .logo { margin-bottom: 10px;}
-            nav ul { flex-direction: column; width: 100%;}
-            nav ul li { margin-right: 0; margin-bottom: 5px; padding: 5px 0;}
-            .header-right { width: 100%; justify-content: flex-start; margin-top:10px;}
-            
-            #home .hero h1 { font-size: 2.5em; }
-            .program-cards, .video-thumbnails { flex-direction: column; align-items: center; }
-            .program-card { width: 80%; max-width: 300px; margin-bottom: 20px; }
-            .video-thumbnail { width: 80%; max-width: 300px; height: auto; aspect-ratio: 16/9; margin-bottom:10px; }
+/* === ESTILOS PARA EL MENÚ HAMBURGUESA Y NAVEGACIÓN MÓVIL === */
 
-            .articulos-layout, .retos-layout { flex-direction: column; }
-            .articulos-main, .articulos-sidebar, .retos-main, .retos-sidebar { flex: none; width: 100%; }
-        }
+/* --- Botón Hamburguesa --- */
+.menu-toggle {
+    display: none; /* Oculto por defecto en pantallas grandes */
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1005; /* Encima del header sticky, pero visible sobre el menú abierto */
+    position: relative; 
+    width: 30px;
+    height: 30px;
+    box-sizing: content-box; /* Para que el padding no afecte el tamaño total para las líneas */
+}
 
+.menu-toggle .line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-light);
+    margin: 4px 0; /* Crea el espaciado vertical entre líneas */
+    transition: all 0.3s ease-in-out;
+    position: absolute; /* Posicionamiento para la animación a 'X' */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu-toggle .line1 { top: 7px; }
+.menu-toggle .line2 { top: 14px; } /* Centro */
+.menu-toggle .line3 { top: 21px; }
+
+/* Transformación a X cuando el menú está activo */
+.menu-toggle.active .line1 {
+    top: 14px; /* Mover al centro */
+    transform: translateX(-50%) rotate(45deg);
+}
+.menu-toggle.active .line2 {
+    opacity: 0;
+}
+.menu-toggle.active .line3 {
+    top: 14px; /* Mover al centro */
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+/* --- Contenedor del Menú Móvil --- */
+.mobile-nav-container {
+    display: none;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--footer-blue);
+    z-index: 1003; /* Encima del contenido, debajo del botón X si es necesario */
+    overflow-y: auto;
+    padding-top: 60px; /* Espacio para el header que permanece visible (con el botón X) */
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    -webkit-overflow-scrolling: touch; /* Para un scroll más suave en iOS */
+}
+
+.mobile-nav-container.open {
+    display: flex;
+}
+
+/* Estilos para la navegación clonada dentro del menú móvil */
+.mobile-nav-container nav {
+    width: 100%;
+    margin-top: 20px;
+}
+.mobile-nav-container nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.mobile-nav-container nav ul li {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.mobile-nav-container nav ul li:first-child {
+    border-top: 1px solid rgba(255,255,255,0.1); /* Opcional: borde superior */
+}
+.mobile-nav-container nav ul li a {
+    display: block;
+    padding: 18px 20px; /* Más padding para mejor toque */
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+.mobile-nav-container nav ul li a:hover,
+.mobile-nav-container nav ul li a.active { /* Para marcar el enlace activo */
+    background-color: rgba(255,255,255,0.05);
+    color: #e0e0e0; /* Un poco más claro o diferente al activo */
+}
+.mobile-nav-container nav ul li a.active {
+    font-weight: bold;
+    background-color: rgba(255,255,255,0.1); /* Distinción para el activo */
+}
+
+
+/* Estilos para el .header-right clonado (idioma, suscribirse) */
+.mobile-nav-container .header-right-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px; /* Más padding */
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px; /* Espacio después de los links de nav */
+}
+.mobile-nav-container .language-switcher {
+    margin-bottom: 25px;
+}
+.mobile-nav-container .btn-subscribe {
+    padding: 10px 20px; /* Botón un poco más grande */
+    font-size: 1em;
+}
+
+
+/* --- Ajustes Responsivos para el Header Original --- */
+@media (max-width: 768px) {
+    header {
+        /* El header sigue siendo sticky */
+    }
+    .header-content {
+        /* Anular los estilos responsivos existentes que apilan todo */
+        flex-direction: row !important; 
+        justify-content: flex-start !important; /* Botón hamburguesa a la izquierda */
+        align-items: center !important;
+        height: 60px; /* Altura fija para el header en móvil */
+        padding: 0 15px !important; /* Ajustar padding si es necesario */
+        width: 100%; /* Asegurar que ocupa todo el ancho */
+        box-sizing: border-box;
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostrar el botón hamburguesa */
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Ocultar los elementos originales del header en móvil */
+    .header-content .logo-nav,
+    .header-content .header-right {
+        display: none !important;
+    }
+    
+    /* Evitar scroll del body cuando el menú móvil está abierto */
+    body.mobile-menu-open {
+        overflow: hidden;
+    }
+}
     </style>
 </head>
 <body>
@@ -1202,28 +1346,6 @@
                         </div>
 
                     </div> <!-- Fin de retos-main -->
-
-                    <aside class="retos-sidebar">
-                        <!-- El widget de la tarjeta de reto del screenshot original parece genérico -->
-                        <!-- Lo mantendré, pero ten en cuenta que su contenido ("LIBRO: LA VANIDAD DEL CONTENTAMIENTO") -->
-                        <!-- corresponde a uno de los retos específicos (Segundo Reto de Marzo) y no es general. -->
-                        <!-- Podrías actualizar este widget dinámicamente con JavaScript si quisieras que refleje el reto activo. -->
-                        <div class="widget">
-                           <div class="reto-card">
-                                <h4 data-lang-spa="RETO DE LECTURA ACTUAL" data-lang-swe="AKTUELL LÄSUTMANING">RETO DE LECTURA ACTUAL</h4>
-                                <p>TrueParenting.com</p>
-                                <p data-lang-spa="Información específica del reto visible aparecería aquí, o un mensaje general." data-lang-swe="Specifik information om den synliga utmaningen skulle visas här, eller ett allmänt meddelande.">Información específica del reto visible aparecería aquí, o un mensaje general.</p>
-                                <p data-lang-spa="Envíalo en el mail: leerenfamilia@gmail.com" data-lang-swe="Skicka det via e-post: leerenfamilia@gmail.com">Envíalo en el mail: leerenfamilia@gmail.com</p>
-                                <hr style="border-color: rgba(255,255,255,0.3);">
-                                <!-- Las tareas de ejemplo se mantienen, pero serían más relevantes si fueran dinámicas -->
-                                <ul class="reto-tasks">
-                                    <li data-lang-spa="Recordar el objetivo diario" data-lang-swe="Kom ihåg det dagliga målet"><span class="task-text">Recordar el objetivo diario</span> <input type="checkbox"></li>
-                                    <li data-lang-spa="Leer sin interrupciones" data-lang-swe="Läs utan avbrott"><span class="task-text">Leer sin interrupciones</span> <input type="checkbox"></li>
-                                    <li data-lang-spa="Compartir algo aprendido" data-lang-swe="Dela med dig av något du lärt dig"><span class="task-text">Compartir algo aprendido</span> <input type="checkbox"></li>
-                                </ul>
-                           </div>
-                        </div>
-                    </aside>
                 </div>
             </div>
         </section>
