@@ -3,17 +3,13 @@
 const { Octokit } = require("@octokit/rest");
 const { Base64 } = require("js-base64");
 
-// Variables de entorno para GitHub y para la API de Netlify
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const REPO_OWNER = process.env.GITHUB_REPO_OWNER;
 const REPO_NAME = process.env.GITHUB_REPO_NAME;
 const REPO_BRANCH = process.env.GITHUB_REPO_BRANCH || "main";
 const FORM_NAME_PREFIX = process.env.NETLIFY_FORM_NAME_PREFIX || "comments-";
 
-// Variables para Netlify deploy
-const NETLIFY_SITE_ID = process.env.NETLIFY_SITE_ID;
-const NETLIFY_ACCESS_TOKEN = process.env.NETLIFY_ACCESS_TOKEN;
-
+// Inicializar Octokit globalmente
 let octokit;
 try {
   octokit = new Octokit({ auth: GITHUB_TOKEN });
@@ -41,8 +37,9 @@ exports.handler = async (event) => {
     console.error("Error parsing event body:", error);
     return { statusCode: 400, body: "Malformed request body." };
   }
-  
+
   const { data, form_name, id: submissionId } = payload;
+
   if (!form_name || !form_name.startsWith(FORM_NAME_PREFIX)) {
     console.log(`Form name "${form_name}" does not match prefix "${FORM_NAME_PREFIX}". Skipping.`);
     return {
@@ -52,12 +49,10 @@ exports.handler = async (event) => {
   }
 
   const { name, comment, article_slug, article_title, email, "bot-field": botField } = data;
+
   if (botField) {
     console.warn("Bot submission detected (honeypot filled).");
-    return { 
-      statusCode: 400, 
-      body: JSON.stringify({ error: "Spam submission detected." }) 
-    };
+    return { statusCode: 400, body: JSON.stringify({ error: "Spam submission detected." }) };
   }
   if (!name || !comment || !article_slug || !article_title) {
     const missing = [
@@ -69,19 +64,13 @@ exports.handler = async (event) => {
       .filter(Boolean)
       .join(", ");
     console.error("Missing required fields:", data);
-    return { 
-      statusCode: 400, 
-      body: JSON.stringify({ error: `Missing required fields: ${missing}` }) 
-    };
+    return { statusCode: 400, body: JSON.stringify({ error: `Missing required fields: ${missing}` }) };
   }
   if (comment.length > 2000) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ error: "Comment is too long (max 2000 chars)." })
-    };
+    return { statusCode: 400, body: JSON.stringify({ error: "Comment is too long (max 2000 chars)." }) };
   }
 
-  // Nuevo comentario
+  // Preparamos el nuevo comentario
   const commentData = {
     id: Date.now().toString(),
     name: name.trim(),
@@ -90,23 +79,23 @@ exports.handler = async (event) => {
   };
 
   const commentsFilePath = `_data/comments/${article_slug}.json`;
-  // Saneamos el nombre del archivo (slug)
+  // Saneamos el slug para que forme un nombre de archivo válido
   const sanitizedSlug = String(article_slug).replace(/[^a-z0-9]/gi, "-");
-  // Creamos el nombre de la rama a partir del slug y el timestamp
+  // Creamos el nombre de la rama usando el slug y un timestamp
   const newBranchName = `comment-${sanitizedSlug}-${commentData.id}`;
-  
+
   let branchCreated = false;
-  
+
   try {
-    // Obtenemos el SHA de la rama main para usar como base
+    // Obtenemos el SHA de la rama main para usarla como base
     const { data: mainBranch } = await octokit.git.getRef({
       owner: REPO_OWNER,
       repo: REPO_NAME,
       ref: `heads/${REPO_BRANCH}`,
     });
     const mainBranchSha = mainBranch.object.sha;
-    
-    // Creamos la nueva rama fuera de main
+
+    // Creamos la nueva rama a partir de main
     await octokit.git.createRef({
       owner: REPO_OWNER,
       repo: REPO_NAME,
@@ -115,8 +104,8 @@ exports.handler = async (event) => {
     });
     branchCreated = true;
     console.log(`Branch "${newBranchName}" created successfully.`);
-    
-    // Obtener el contenido actual del archivo de comentarios en la rama main
+
+    // Obtener el contenido actual del archivo de comentarios en la rama nueva
     let existingComments = [];
     let fileSha = null;
     try {
@@ -124,7 +113,7 @@ exports.handler = async (event) => {
         owner: REPO_OWNER,
         repo: REPO_NAME,
         path: commentsFilePath,
-        ref: newBranchName, // Leemos en la rama que acabamos de crear
+        ref: newBranchName, // leyendo en la nueva rama
       });
       if (fileData.content) {
         existingComments = JSON.parse(Base64.decode(fileData.content));
@@ -134,25 +123,25 @@ exports.handler = async (event) => {
       if (error.status !== 404) throw error;
       console.log(`Comments file "${commentsFilePath}" not found in branch "${newBranchName}". It will be created.`);
     }
-    
-    // Añadimos el nuevo comentario al JSON
+
+    // Añadimos el nuevo comentario al JSON existente
     const updatedComments = [...existingComments, commentData];
     const commitMessage = `feat: Add new comment to ${article_title} (ID: ${commentData.id})`;
-    
+
     await octokit.repos.createOrUpdateFileContents({
       owner: REPO_OWNER,
       repo: REPO_NAME,
       path: commentsFilePath,
       message: commitMessage,
       content: Base64.encode(JSON.stringify(updatedComments, null, 2)),
-      sha: fileSha, // Si fileSha es null, se creará el archivo
+      sha: fileSha, // si fileSha es null, se creará el archivo
       branch: newBranchName,
       committer: { name: "Netlify Comments Bot", email: "netlify-bot@example.com" },
       author: { name: "Netlify Comments Bot", email: "netlify-bot@example.com" },
     });
     console.log(`Comments file "${commentsFilePath}" updated in branch "${newBranchName}".`);
-    
-    // Creamos el Pull Request desde la nueva rama a main (para registro o auditoría)
+
+    // Creamos el Pull Request de la nueva rama a main
     const prTitle = `New Comment: ${article_title} by ${name}`;
     const prBody = `
 New comment submitted for article: **${article_title}** (\`slug: ${article_slug}\`)
@@ -163,8 +152,8 @@ Comment ID: \`${commentData.id}\`
 ---
 **Comment:**
 > ${comment}
-    
-This pull request deploys from branch \`${newBranchName}\`.
+
+Click [here](https://github.com/${REPO_OWNER}/${REPO_NAME}/compare/${REPO_BRANCH}...${newBranchName}?expand=1) to review and merge.
     `;
     const { data: pullRequest } = await octokit.pulls.create({
       owner: REPO_OWNER,
@@ -175,43 +164,25 @@ This pull request deploys from branch \`${newBranchName}\`.
       body: prBody,
     });
     console.log(`Pull request created: ${pullRequest.html_url}`);
-    
-    // --- Trigger Netlify deploy desde la nueva rama ---
-    // Esto utiliza la API de Netlify para lanzar un deploy desde la rama recién creada.
-    if (NETLIFY_SITE_ID && NETLIFY_ACCESS_TOKEN) {
-      console.log(`Triggering deploy for branch: ${newBranchName}`);
-      const deployResponse = await fetch(
-        `https://api.netlify.com/api/v1/sites/${NETLIFY_SITE_ID}/builds`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${NETLIFY_ACCESS_TOKEN}`
-          },
-          // Envia la rama que deseas desplegar.
-          body: JSON.stringify({ branch: newBranchName })
-        }
-      );
-      
-      if (!deployResponse.ok) {
-        const errorText = await deployResponse.text();
-        console.error("Deploy trigger failed:", errorText);
-      } else {
-        const deployData = await deployResponse.json();
-        console.log("Deploy triggered for branch:", newBranchName, deployData);
-      }
-    } else {
-      console.warn("NETLIFY_SITE_ID or NETLIFY_ACCESS_TOKEN not set. Skipping deploy trigger.");
-    }
-    
+
     return {
       statusCode: 200,
       body: JSON.stringify({
-        message: "Comment submitted, branch created, PR generated and deploy triggered.",
+        message: "Comment submitted and pull request created successfully.",
         pr_url: pullRequest.html_url,
         deploy_branch: newBranchName
       }),
     };
     
   } catch (error) {
-    console.error("Error processing comment submission:", error.message
+    console.error("Error processing comment submission:", error.message);
+    if (error.stack) console.error(error.stack);
+    if (error.response && error.response.data) {
+      console.error("GitHub API Error:", error.response.data);
+    }
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: `Error processing comment: ${error.message}` }),
+    };
+  }
+};
