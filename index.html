@@ -853,7 +853,6 @@
         <p class="hidden" style="display:none;">
             <label>No llenes esto si eres humano: <input name="bot-field"></label>
         </p>
-
         <input type="text" name="name" placeholder="Nombre" required 
                data-lang-spa-placeholder="Nombre" 
                data-lang-swe-placeholder="Namn">
@@ -869,7 +868,6 @@
         
         <!-- Opcional: reCAPTCHA (configurar en Netlify) -->
         <!-- <div data-netlify-recaptcha="true"></div> -->
-
         <button type="submit" class="btn btn-primary" data-lang-spa="Enviar comentario" data-lang-swe="Skicka kommentar">
             Enviar comentario
         </button>
@@ -1460,7 +1458,7 @@
   // Función para cargar comentarios
   function loadComments() {
     // USA TU DOMINIO DE NETLIFY en lugar de GitHub Raw para evitar caché
-    const commentsUrl = 'https://tu-sitio.netlify.app/_data/comments/AMN1.json';
+    const commentsUrl = 'https://storied-taffy-2c8d25.netlify.app/_data/comments/AMN1.json';
     
     fetch(commentsUrl + '?t=' + Date.now()) // Cache busting con timestamp
       .then(response => {
