@@ -660,23 +660,71 @@
             /* margin: 0 auto; /* Si width es auto, para centrarlo */
             /* display: block; /* Si width es auto, para centrarlo con margin */
         }
-        /* Responsive adjustments - basic */
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; align-items: flex-start;}
-            .logo-nav { flex-direction: column; align-items: flex-start; width: 100%;}
-            .logo { margin-bottom: 10px;}
-            nav ul { flex-direction: column; width: 100%;}
-            nav ul li { margin-right: 0; margin-bottom: 5px; padding: 5px 0;}
-            .header-right { width: 100%; justify-content: flex-start; margin-top:10px;}
-            
-            #home .hero h1 { font-size: 2.5em; }
-            .program-cards, .video-thumbnails { flex-direction: column; align-items: center; }
-            .program-card { width: 80%; max-width: 300px; margin-bottom: 20px; }
-            .video-thumbnail { width: 80%; max-width: 300px; height: auto; aspect-ratio: 16/9; margin-bottom:10px; }
 
-            .articulos-layout, .retos-layout { flex-direction: column; }
-            .articulos-main, .articulos-sidebar, .retos-main, .retos-sidebar { flex: none; width: 100%; }
-        }
+        /* Responsive adjustments - basic */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.hamburger div {
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #ece5e6;
+    transition: 0.3s;
+}
+
+.hamburger .bar1 {
+    transform: rotate(90deg);
+}
+
+.hamburger .bar2 {
+    transform: rotate(0deg);
+}
+
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul.show {
+        display: block;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+}
 
     </style>
 </head>
@@ -1445,6 +1493,37 @@
 
     });
     </script>
+<script>document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.createElement("div");
+    hamburger.className = "hamburger";
+    
+    const bar1 = document.createElement("div");
+    bar1.className = "bar1";
+    const bar2 = document.createElement("div");
+    bar2.className = "bar2";
+
+    hamburger.appendChild(bar1);
+    hamburger.appendChild(bar2);
+
+    const nav = document.querySelector("nav");
+    const navLinks = document.querySelector("nav ul");
+
+    nav.parentNode.insertBefore(hamburger, nav);
+
+    hamburger.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+
+        // Animación: cambiar el "+" a una "X" cuando se abre el menú
+        if (navLinks.classList.contains("show")) {
+            bar1.style.transform = "rotate(45deg)";
+            bar2.style.transform = "rotate(-45deg)";
+        } else {
+            bar1.style.transform = "rotate(90deg)";
+            bar2.style.transform = "rotate(0deg)";
+        }
+    });
+});
+</script>
 <script>
   // Función para cargar comentarios
   function loadComments() {
