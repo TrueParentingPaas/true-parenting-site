@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@octokit/rest": "^21.1.1",
+    "js-base64": "^3.7.7"
+  }
+}
