@@ -1456,5 +1456,32 @@
 
     });
     </script>
+<script>
+  // Ajusta la URL según donde se publique tu archivo
+  const commentsUrl = 'https://raw.githubusercontent.com/TrueParentingPaas/true-parenting-site/main/_data/comments/AMN1.json';
+
+  fetch(commentsUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('No se pudo cargar el archivo de comentarios');
+      }
+      return response.json();
+    })
+    .then(comments => {
+      const container = document.getElementById('comments-AMN1');
+      // Renderiza cada comentario; adapta el formato HTML a tus necesidades
+      container.innerHTML = comments.map(comment => `
+        <div class="comment">
+          <strong>${comment.name}</strong> <span>${new Date(comment.date).toLocaleString()}</span>
+          <p>${comment.comment}</p>
+        </div>
+      `).join('');
+    })
+    .catch(error => {
+      console.error('Error cargando comentarios:', error);
+      const container = document.getElementById('comments-AMN1');
+      container.innerHTML = '<p>Error cargando comentarios.</p>';
+    });
+</script>
 </body>
 </html>
