@@ -1,6 +1,7 @@
-// netlify/functions/submission-created.js
+// netlify/functions/submission-created.mjs
 
-const { Base64 } = require("js-base64");
+import { Octokit } from "@octokit/rest";
+import { Base64 } from "js-base64"; // Asegúrate de tener instalado js-base64 con npm
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const REPO_OWNER = process.env.GITHUB_REPO_OWNER;
@@ -8,11 +9,10 @@ const REPO_NAME = process.env.GITHUB_REPO_NAME;
 const REPO_BRANCH = process.env.GITHUB_REPO_BRANCH || "main";
 const FORM_NAME_PREFIX = process.env.NETLIFY_FORM_NAME_PREFIX || "comments-";
 
-exports.handler = async (event) => {
-  // Carga dinámica de Octokit
-  const { Octokit } = await import("@octokit/rest");
-  const octokit = new Octokit({ auth: GITHUB_TOKEN });
-  
+// Inicializar Octokit globalmente.
+const octokit = new Octokit({ auth: GITHUB_TOKEN });
+
+export async function handler(event) {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
@@ -176,4 +176,4 @@ Netlify Submission ID: ${submissionId || "N/A"}
       body: JSON.stringify({ error: `Error processing comment: ${error.message}` }),
     };
   }
-};
+}
