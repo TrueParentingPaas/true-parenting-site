@@ -174,14 +174,45 @@
             justify-content: center;
             align-items: center;
         }
+
+
+          #home .hero::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, var(--dark-blue-gradient-start), var(--dark-blue-gradient-end) 70%, var(--primary-blue) 100%);
+                opacity: 0.75; /* Ajusta la opacidad para balancear el video y el degradado */
+                z-index: 1;
+            }
+
         #home .hero h1 {
             font-size: 4em; 
             margin-bottom: 15px;
             font-weight: bold;
+            z-index: 2;
         }
         #home .hero p {
             font-size: 1.2em;
             margin-bottom: 30px;
+            z-index: 2;
+        }
+
+        #home .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 85%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+
+         #home .hero a {
+        z-index: 2; /* Asegura que el contenido esté sobre el degradado y video */
         }
 
         /* --- Programs Section (Homepage) --- */
@@ -772,6 +803,10 @@
         <!-- Página de Inicio -->
           <section id="home" class="page active">
             <div class="hero">
+            <video autoplay muted loop>
+                    <source src="/media/momfront.trueparenting.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
                 <h1 data-lang-spa="¡Vamos sí se puede!" data-lang-swe="Kom igen, du kan!">¡Vamos sí se puede!</h1>
                 <p data-lang-spa="Transforma tu familia con principios bíblicos" data-lang-swe="Förvandla din familj med bibliska principer">Transforma tu familia con principios bíblicos</p>
                 <a href="#" class="btn btn-primary" data-lang-spa="DESCUBRE MÁS" data-lang-swe="UPPTÄCK MER">DESCUBRE MÁS</a>
@@ -779,7 +814,7 @@
             <div class="programs-section">
                 <div class="container">
                     
-                    <h2 data-lang-spa="Elige tu programa" data-lang-swe="Välj ditt program">Elige tu programa</h2>
+<h2 data-lang-spa="Elige tu programa" data-lang-swe="Välj ditt program" style="position: relative; z-index: 1;">Elige tu programa</h2>
                     <div class="section-divider"></div>
                     <div class="program-cards">
                          <div class="program-card"> 
