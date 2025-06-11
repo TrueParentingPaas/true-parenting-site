@@ -147,6 +147,7 @@
         
         main {
             flex-grow: 1; /* Allows main content to fill available space */
+              background-color: var(--primary-blue);
         }
         /* --- Page Sections --- */
         .page {
@@ -209,6 +210,18 @@
             object-fit: cover;
             z-index: 0;
         }
+        
+        .hero-image {
+
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.7;
+        z-index: 1;
+        }
+
 
         .hero a.btn-primary { /* Ensure button is on top */
             z-index: 2; 
@@ -936,13 +949,10 @@
         <!-- Página de Inicio - SWE -->
         <section id="home-swe" class="page" style="display: none;">
             <div class="hero">
-                <video autoplay muted loop>
-                    <source src="/media/momfront.trueparenting.mp4" type="video/mp4"> <!-- Consider different video for SWE if needed -->
-                    Din webbläsare stöder inte videoklipp.
-                </video>
-                <h1>Esta es una prueba para Urban</h1>
-                <p>Förvandla din familj med bibliska principer</p>
-                <a href="#quienes-somos" class="btn btn-primary nav-link internal-link">UPPTÄCK MER</a>
+<img src="/media/momfront.trueparenting.jpg" alt="True Parenting" class="hero-image">
+    <h1>För en bättre framtid</h1>
+    <p>Förvandla din familj med bibliska principer</p>
+    <a href="#quienes-somos" class="btn btn-primary nav-link internal-link">UPPTÄCK MER</a>
             </div>
             <div class="programs-section programs-section-swe">
                 <div class="container">
@@ -979,34 +989,6 @@ En unik bok om svensk nutidshistoria.</p>
                     </div>
                 </div>
             </div>
-            <div class="videos-section videos-section-swe">
-                <div class="container">
-                    <h2>Senaste Videor</h2>
-                    <div class="section-divider"></div>
-                    <div class="video-thumbnails">
-                        <div class="video-thumbnail">
-                            <img src="https://img.youtube.com/vi/u2JWDzn5_Pc/maxresdefault.jpg" alt="Video Thumbnail 1 SWE">
-                            <div class="caption">Bokklubbspass 7 - Håll dina barn på Guds sida - Natasha Crain</div>
-                        </div>
-                        <div class="video-thumbnail">
-                            <img src="https://img.youtube.com/vi/u2JWDzn5_Pc/maxresdefault.jpg" alt="Video Thumbnail 2 SWE">
-                            <div class="caption">Bokklubb 2</div> <!-- Note: SWE screenshot has "Bokklubb 2", original data-lang-swe has longer text -->
-                        </div>
-                        <div class="video-thumbnail">
-                            <img src="https://img.youtube.com/vi/0xp1ambWUMg/maxresdefault.jpg" alt="Video Thumbnail 3 SWE">
-                            <div class="caption">Bokklubb</div>
-                        </div>
-                        <div class="video-thumbnail">
-                            <img src="https://img.youtube.com/vi/fGo-KkvSGK8/maxresdefault.jpg" alt="Video Thumbnail 4 SWE">
-                            <div class="caption">Feminism och Abort</div>
-                        </div>
-                         <div class="video-thumbnail">
-                            <img src="https://img.youtube.com/vi/Jq-F3khSEm0/maxresdefault.jpg" alt="Video Thumbnail 5 SWE">
-                            <div class="caption">Postmodernism</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- Quiénes Somos - SPA -->
@@ -1037,21 +1019,8 @@ En unik bok om svensk nutidshistoria.</p>
             <div class="container">
                 <div class="content-block">
                     <h2>Om oss</h2>
-                    <img src="media/fam.jpg" alt="Familjen True Parenting" class="team-image"> <!-- Update src if different image for SWE -->
-                    <p>Enligt Bibeln är familjen samhällets huvudsakliga institution som utgör grunden för alla andra sfärer, såsom det civila samhället, näringslivet, utbildning och statliga institutioner. Kort sagt, ett samhälle byggs av familjer, och så som familjen mår, så mår vår värld. True Parenting vill hjälpa till att förstå och tillämpa Bibelns principer för familjen. Detta inkluderar inte bara råd för barnuppfostran, utan också vägledning för att förstå samhället som helhet. När vi förstår Guds principer för samhället och familjen kan vi också bättre navigera i den värld vi lever i.</p>
+                    <p>Familjen är enligt Bibeln samhällets primära institution som utgör grunden för alla andra sfärer i samhället såsom civilsamhället, näringslivet, utbildning och de statliga institutionerna. Kort sagt, ett samhälle byggs av familjer, och så som det går för familjen, så går det för vårt land och för hela vår värld.  True Parenting vill vara till hjälp för att förstå och tillämpa bibliska principer för familjen. Detta innefattar inte bara konkreta tips och råd för uppfostran, utan även vägledning för att hjälpa oss att förstå hela samhället. När vi förstår Guds principer för samhället och familjen, kan vi också bättre navigera i den värld vi lever i.</p>
                     <p style="font-style: italic; color: #777; font-size:0.9em;">Familjen True Parenting</p>
-
-                    <h3>Vårt team</h3>
-                    <p>Vi är en grupp föräldrar, pedagoger och rådgivare som är engagerade i att sprida Bibelns principer för familjen. Var och en av oss har upplevt den transformerande kraften i att tillämpa dessa principer i våra egna familjer.</p>
-                    
-                    <div class="team-member">
-                        <div class="member-name">Urban</div>
-                        <p>Beskrivning av denna teammedlems profil. Du kan inkludera hens erfarenhet, utbildning, vision för True Parenting och hur hen tillämpar Bibelns principer i sin egen familj.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-name">Marleny</div>
-                        <p>Beskrivning av denna teammedlems profil. Information om hens bakgrund, erfarenhet inom familjerådgivning eller utbildning, och hens bidrag till True Parentings tjänst.</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1113,19 +1082,21 @@ En unik bok om svensk nutidshistoria.</p>
                             <p>¿Cuál de estos consejos deseas poner en práctica? Cuéntame en los comentarios.</p>
                             <p>Con cariño,</p>
                             <p>Marleny</p>
-                            <div class="comments-section">
-                                <h3>Comentarios - 20 maneras...</h3>
-                                <div id="commentsSection20maneras-spa"></div>
-                                <h3>¡Únete a la conversación!</h3>
-                                <form name="comments-20maneras-spa" method="POST" data-netlify="true" class="comment-form">
-                                    <input type="hidden" name="form-name" value="comments-20maneras-spa" />
-                                    <input type="hidden" name="article-title" value="20 maneras de ayudar a los niños a amar la lectura (SPA)" />
-                                    <input type="text" name="name" placeholder="Nombre" required>
-                                    <input type="email" name="email" placeholder="Correo electrónico" required>
-                                    <textarea name="comment" placeholder="Comentario" required></textarea>
-                                    <button type="submit" class="btn btn-primary">Enviar comentario</button>
-                                </form>
-                            </div>
+                        <div class="comments-section">
+                            <h3>Comentarios - 20 maneras...</h3>
+                            <div id="comments-20MANERAS-spa"></div> <!-- CAMBIO: ID estandarizado -->
+                            <h3>¡Únete a la conversación!</h3>
+                            <form name="comments-20MANERAS-spa" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
+                                <input type="hidden" name="form-name" value="comments-20MANERAS-spa" />
+                                <input type="hidden" name="article_slug" value="20MANERAS" /> <!-- AÑADIDO: Slug del artículo -->
+                                <input type="hidden" name="article_title" value="20 maneras de ayudar a los niños a amar la lectura (SPA)" /> <!-- AÑADIDO: Título del artículo -->
+                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                                <input type="text" name="name" placeholder="Nombre" required>
+                                <input type="email" name="email" placeholder="Correo electrónico" required>
+                                <textarea name="comment" placeholder="Comentario" required></textarea>
+                                <button type="submit" class="btn btn-primary">Enviar comentario</button>
+                            </form>
+                        </div>
                         </div>
                         <!-- Artículo 3: Superar la ansiedad (SPA) -->
                         <div class="content-block articulo-contenido" id="articulo-content-superaransiedad-spa" style="display:none;">
@@ -1141,19 +1112,21 @@ En unik bok om svensk nutidshistoria.</p>
                             <p>Con Cariño,</p>
                             <p>Marleny.</p>
                              <img src="/articulos/Plan_de_transcripcion_abril.jpg" alt="Plan de transcripción de Abril" style="width:100%; max-width:400px; margin:15px auto; display:block;">
-                            <div class="comments-section">
-                                <h3>Comentarios - Superar la ansiedad</h3>
-                                <div id="commentsSectionSuperarAnsiedad-spa"></div>
-                                <h3>¡Únete a la conversación!</h3>
-                                <form name="comments-superaransiedad-spa" method="POST" data-netlify="true" class="comment-form">
-                                    <input type="hidden" name="form-name" value="comments-superaransiedad-spa" />
-                                    <input type="hidden" name="article-title" value="Superar la ansiedad (SPA)" />
-                                    <input type="text" name="name" placeholder="Nombre" required>
-                                    <input type="email" name="email" placeholder="Correo electrónico" required>
-                                    <textarea name="comment" placeholder="Comentario" required></textarea>
-                                    <button type="submit" class="btn btn-primary">Enviar comentario</button>
-                                </form>
-                            </div>
+                        <div class="comments-section">
+                            <h3>Comentarios - Superar la ansiedad</h3>
+                            <div id="comments-SUPERARANSIEDAD-spa"></div> <!-- CAMBIO: ID estandarizado -->
+                            <h3>¡Únete a la conversación!</h3>
+                            <form name="comments-SUPERARANSIEDAD-spa" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
+                                <input type="hidden" name="form-name" value="comments-SUPERARANSIEDAD-spa" />
+                                <input type="hidden" name="article_slug" value="SUPERARANSIEDAD" /> <!-- AÑADIDO -->
+                                <input type="hidden" name="article_title" value="Superar la ansiedad - Plan de transcripción de abril (SPA)" /> <!-- AÑADIDO -->
+                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                                <input type="text" name="name" placeholder="Nombre" required>
+                                <input type="email" name="email" placeholder="Correo electrónico" required>
+                                <textarea name="comment" placeholder="Comentario" required></textarea>
+                                <button type="submit" class="btn btn-primary">Enviar comentario</button>
+                            </form>
+                        </div>
                         </div>
                         <!-- Artículo 4: La educación es la ciencia de las relaciones (SPA) -->
                         <div class="content-block articulo-contenido" id="articulo-content-educacionrelaciones-spa" style="display:none;">
@@ -1168,19 +1141,21 @@ En unik bok om svensk nutidshistoria.</p>
                             <p>Si quieres reflexionar un poco más sobre este tema, te invito a escuchar uno de los episodios de nuestro podcast "Educación Diseño Original" dando click <a href="#" class="btn-link">AQUÍ</a>.</p>
                             <p>Con cariño,</p>
                             <p>Marleny.</p>
-                             <div class="comments-section">
-                                <h3>Comentarios - La educación es la ciencia...</h3>
-                                <div id="commentsSectionEducacionRelaciones-spa"></div>
-                                <h3>¡Únete a la conversación!</h3>
-                                <form name="comments-educacionrelaciones-spa" method="POST" data-netlify="true" class="comment-form">
-                                    <input type="hidden" name="form-name" value="comments-educacionrelaciones-spa" />
-                                    <input type="hidden" name="article-title" value="La educación es la ciencia de las relaciones (SPA)" />
-                                    <input type="text" name="name" placeholder="Nombre" required>
-                                    <input type="email" name="email" placeholder="Correo electrónico" required>
-                                    <textarea name="comment" placeholder="Comentario" required></textarea>
-                                    <button type="submit" class="btn btn-primary">Enviar comentario</button>
-                                </form>
-                            </div>
+                        <div class="comments-section">
+                            <h3>Comentarios - La educación es la ciencia...</h3>
+                            <div id="comments-EDUCACIONRELACIONES-spa"></div> <!-- CAMBIO: ID estandarizado -->
+                            <h3>¡Únete a la conversación!</h3>
+                            <form name="comments-EDUCACIONRELACIONES-spa" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
+                                <input type="hidden" name="form-name" value="comments-EDUCACIONRELACIONES-spa" />
+                                <input type="hidden" name="article_slug" value="EDUCACIONRELACIONES" /> <!-- AÑADIDO -->
+                                <input type="hidden" name="article_title" value="La educación es la ciencia de las relaciones (SPA)" /> <!-- AÑADIDO -->
+                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                                <input type="text" name="name" placeholder="Nombre" required>
+                                <input type="email" name="email" placeholder="Correo electrónico" required>
+                                <textarea name="comment" placeholder="Comentario" required></textarea>
+                                <button type="submit" class="btn btn-primary">Enviar comentario</button>
+                            </form>
+                        </div>
                         </div>
                          <!-- Artículo 5: ¿Vale la pena criar a los hijos? (SPA) -->
                         <div class="content-block articulo-contenido" id="articulo-content-vale-la-pena-criar-spa" style="display:none;">
@@ -1192,19 +1167,21 @@ En unik bok om svensk nutidshistoria.</p>
                                 <p>Disciplina a tus hijos mientras haya esperanza; de lo contrario, arruinarás sus vidas. (Prov 19:18)</p>
                             </blockquote>
                             <p>Texto adaptado de la enseñanza de Sugel Michelén, "Nuestra responsabilidad como padres" (<a href="#" class="btn-link">Enlace</a>)</p>
-                             <div class="comments-section">
-                                <h3>Comentarios - ¿Vale la pena criar...?</h3>
-                                <div id="commentsSectionValeLaPenaCriar-spa"></div>
-                                <h3>¡Únete a la conversación!</h3>
-                                <form name="comments-vale-la-pena-criar-spa" method="POST" data-netlify="true" class="comment-form">
-                                    <input type="hidden" name="form-name" value="comments-vale-la-pena-criar-spa" />
-                                    <input type="hidden" name="article-title" value="¿Vale la pena criar a los hijos? (SPA)" />
-                                    <input type="text" name="name" placeholder="Nombre" required>
-                                    <input type="email" name="email" placeholder="Correo electrónico" required>
-                                    <textarea name="comment" placeholder="Comentario" required></textarea>
-                                    <button type="submit" class="btn btn-primary">Enviar comentario</button>
-                                </form>
-                            </div>
+                        <div class="comments-section">
+                            <h3>Comentarios - ¿Vale la pena criar...?</h3>
+                            <div id="comments-VALELAPENACRIAR-spa"></div> <!-- CAMBIO: ID estandarizado -->
+                            <h3>¡Únete a la conversación!</h3>
+                            <form name="comments-VALELAPENACRIAR-spa" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
+                                <input type="hidden" name="form-name" value="comments-VALELAPENACRIAR-spa" />
+                                <input type="hidden" name="article_slug" value="VALELAPENACRIAR" /> <!-- AÑADIDO -->
+                                <input type="hidden" name="article_title" value="¿Vale la pena criar a los hijos? (SPA)" /> <!-- AÑADIDO -->
+                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                                <input type="text" name="name" placeholder="Nombre" required>
+                                <input type="email" name="email" placeholder="Correo electrónico" required>
+                                <textarea name="comment" placeholder="Comentario" required></textarea>
+                                <button type="submit" class="btn btn-primary">Enviar comentario</button>
+                            </form>
+                        </div>
                         </div>
                     </div> <!-- Fin de articulos-main-spa -->
                     <aside class="articulos-sidebar articulos-sidebar-spa">
@@ -1280,19 +1257,21 @@ Det här är ett perspektiv som - om samhället verkligen tog det till sig - sku
 Nästa gång du ser en tonåring “koppla bort” sin omgivning, skyll inte på tonåringen själv eller på “dagens ungdom”. Skyll på din egen blindhet - inför en politik där familjen och föräldrarna har förringats och där de offentliga institutionerna har satts i deras ställe, i det gigantiska samhällsexperiment som vi kallar “folkhemmet”.</p>
 <p>Urban Skargren</p>
 
-                            <div class="comments-section">
-                                <h3>Kommentarer - Ett gigantiskt samhällsexperiment</h3>
-                                <div id="commentsSection20maneras-swe"></div>
-                                <h3>Delta i konversationen!</h3>
-                                <form name="comments-20maneras-swe" method="POST" data-netlify="true" class="comment-form">
-                                    <input type="hidden" name="form-name" value="comments-20maneras-swe" />
-                                    <input type="hidden" name="article-title" value="20 sätt att hjälpa barn att älska att läsa (SWE)" />
-                                    <input type="text" name="name" placeholder="Namn" required>
-                                    <input type="email" name="email" placeholder="E-post" required>
-                                    <textarea name="comment" placeholder="Kommentar" required></textarea>
-                                    <button type="submit" class="btn btn-primary">Skicka kommentar</button>
-                                </form>
-                            </div>
+                        <div class="comments-section">
+                            <h3>Kommentarer - Ett gigantiskt samhällsexperiment</h3>
+                            <div id="comments-20MANERAS-swe"></div> <!-- CAMBIO: ID estandarizado -->
+                            <h3>Delta i konversationen!</h3>
+                            <form name="comments-20MANERAS-swe" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
+                                <input type="hidden" name="form-name" value="comments-20MANERAS-swe" />
+                                <input type="hidden" name="article_slug" value="20MANERAS" /> <!-- AÑADIDO -->
+                                <input type="hidden" name="article_title" value="Ett gigantiskt samhällsexperiment (SWE)" /> <!-- AÑADIDO -->
+                                <p class="hidden" style="display:none;"><label>Fyll inte i detta om du är människa: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                                <input type="text" name="name" placeholder="Namn" required>
+                                <input type="email" name="email" placeholder="E-post" required>
+                                <textarea name="comment" placeholder="Kommentar" required></textarea>
+                                <button type="submit" class="btn btn-primary">Skicka kommentar</button>
+                            </form>
+                        </div>
                         </div>
                         <!-- Artículo 3: Superar la ansiedad (SWE) -->
                         <div class="content-block articulo-contenido" id="articulo-content-superaransiedad-swe" style="display:none;">
@@ -1322,19 +1301,21 @@ Nästa gång du ser en tonåring “koppla bort” sin omgivning, skyll inte på
                             <p>Vi kan därför förlita oss på att i Jesu ord “allt vad jag har befallt er” ingår även att fullfölja vårt ursprungliga uppdrag som människor, att bygga civilisationer, att bygga samhällen.</p>
                             <p>Vad får det här för konsekvenser för hur kristna ser på samhällsfrågor? Samhället blir då inte något “där ute” som vi observerar på avstånd och nöjer oss med att be för, utan i stället blir det något som vi har ansvar att utforma och ansvarsfullt råda över. När ondskan och dess värderingar vill vinna mark, behöver vi som tror på Bibelns gud därför fråga oss - fullföljer vi vårt grundläggande uppdrag som människor?</p>
                             <p>Urban Skargren</p>
-                            <div class="comments-section">
-                                <h3>Kommentarer - Samhället - ett gudomligt uppdrag</h3>
-                                <div id="commentsSectionSuperarAnsiedad-swe"></div>
-                                <h3>Delta i konversationen!</h3>
-                                <form name="comments-superaransiedad-swe" method="POST" data-netlify="true" class="comment-form">
-                                    <input type="hidden" name="form-name" value="comments-superaransiedad-swe" />
-                                    <input type="hidden" name="article-title" value="Övervinna ångest (SWE)" />
-                                    <input type="text" name="name" placeholder="Namn" required>
-                                    <input type="email" name="email" placeholder="E-post" required>
-                                    <textarea name="comment" placeholder="Kommentar" required></textarea>
-                                    <button type="submit" class="btn btn-primary">Skicka kommentar</button>
-                                </form>
-                            </div>
+                        <div class="comments-section">
+                            <h3>Kommentarer - Samhället - ett gudomligt uppdrag</h3>
+                            <div id="comments-SUPERARANSIEDAD-swe"></div> <!-- CAMBIO: ID estandarizado -->
+                            <h3>Delta i konversationen!</h3>
+                            <form name="comments-SUPERARANSIEDAD-swe" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
+                                <input type="hidden" name="form-name" value="comments-SUPERARANSIEDAD-swe" />
+                                <input type="hidden" name="article_slug" value="SUPERARANSIEDAD" /> <!-- AÑADIDO -->
+                                <input type="hidden" name="article_title" value="Samhället - ett gudomligt uppdrag (SWE)" /> <!-- AÑADIDO -->
+                                <p class="hidden" style="display:none;"><label>Fyll inte i detta om du är människa: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                                <input type="text" name="name" placeholder="Namn" required>
+                                <input type="email" name="email" placeholder="E-post" required>
+                                <textarea name="comment" placeholder="Kommentar" required></textarea>
+                                <button type="submit" class="btn btn-primary">Skicka kommentar</button>
+                            </form>
+                        </div>
                         </div>
                         <!-- Artículo 4: La educación es la ciencia de las relaciones (SWE) -->
                         <div class="content-block articulo-contenido" id="articulo-content-educacionrelaciones-swe" style="display:none;">
@@ -1346,19 +1327,21 @@ Nästa gång du ser en tonåring “koppla bort” sin omgivning, skyll inte på
                             <p>sträva inte efter att vålla hans död.</p>
                             <p>Ordspråksboken 19:18</p>
                             <p>Adaption av Sugel Micheléns undervisning "Vårt ansvar som föräldrar." </p>
-                            <div class="comments-section">
-                                <h3>Kommentarer - Lönar det sig att uppfostra barn?</h3>
-                                <div id="commentsSectionEducacionRelaciones-swe"></div>
-                                <h3>Delta i konversationen!</h3>
-                                <form name="comments-educacionrelaciones-swe" method="POST" data-netlify="true" class="comment-form">
-                                    <input type="hidden" name="form-name" value="comments-educacionrelaciones-swe" />
-                                    <input type="hidden" name="article-title" value="Utbildning är vetenskapen om relationer (SWE)" />
-                                    <input type="text" name="name" placeholder="Namn" required>
-                                    <input type="email" name="email" placeholder="E-post" required>
-                                    <textarea name="comment" placeholder="Kommentar" required></textarea>
-                                    <button type="submit" class="btn btn-primary">Skicka kommentar</button>
-                                </form>
-                            </div>
+                        <div class="comments-section">
+                            <h3>Kommentarer - Lönar det sig att uppostra barn?</h3>
+                            <div id="comments-EDUCACIONRELACIONES-swe"></div> <!-- CAMBIO: ID estandarizado -->
+                            <h3>Delta i konversationen!</h3>
+                            <form name="comments-EDUCACIONRELACIONES-swe" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
+                                <input type="hidden" name="form-name" value="comments-EDUCACIONRELACIONES-swe" />
+                                <input type="hidden" name="article_slug" value="EDUCACIONRELACIONES" /> <!-- AÑADIDO -->
+                                <input type="hidden" name="article_title" value="Lönar det sig att uppfostra barn? (SWE)" /> <!-- AÑADIDO -->
+                                <p class="hidden" style="display:none;"><label>Fyll inte i detta om du är människa: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                                <input type="text" name="name" placeholder="Namn" required>
+                                <input type="email" name="email" placeholder="E-post" required>
+                                <textarea name="comment" placeholder="Kommentar" required></textarea>
+                                <button type="submit" class="btn btn-primary">Skicka kommentar</button>
+                            </form>
+                        </div>
                         </div>
                         <!-- Artículo 5: ¿Vale la pena criar a los hijos? (SWE) -->
                         <div class="content-block articulo-contenido" id="articulo-content-vale-la-pena-criar-swe" style="display:none;">
@@ -1373,19 +1356,21 @@ Nästa gång du ser en tonåring “koppla bort” sin omgivning, skyll inte på
                             <p>Välfärdssamhällets strateger må ignorera den, förlöjliga den, tabubelägga den eller helt försöka eliminera den, men ändå är det bara i familjen som vi skapar en äkta välfärd, en välfärd som kommer inifrån och inte utifrån, och som formar ungdomar som är trygga nog att säga nej till våldet.</p>
                             <p>Visst bör vi sträva efter ett samhälle som är tryggt för medborgarna, men först måste vi skapa medborgare som är trygga för samhället. </p>
                             <p>Urban Skargren</p>
-                            <div class="comments-section">
-                                <h3>Kommentarer - Familjen - samhällets grundbult</h3>
-                                <div id="commentsSectionValeLaPenaCriar-swe"></div>
-                                <h3>Delta i konversationen!</h3>
-                                <form name="comments-vale-la-pena-criar-swe" method="POST" data-netlify="true" class="comment-form">
-                                    <input type="hidden" name="form-name" value="comments-vale-la-pena-criar-swe" />
-                                    <input type="hidden" name="article-title" value="Är det värt att uppfostra barn? (SWE)" />
-                                    <input type="text" name="name" placeholder="Namn" required>
-                                    <input type="email" name="email" placeholder="E-post" required>
-                                    <textarea name="comment" placeholder="Kommentar" required></textarea>
-                                    <button type="submit" class="btn btn-primary">Skicka kommentar</button>
-                                </form>
-                            </div>
+                        <div class="comments-section">
+                            <h3>Kommentarer - Familjen - samhällets grundbult</h3>
+                            <div id="comments-VALELAPENACRIAR-swe"></div> <!-- CAMBIO: ID estandarizado -->
+                            <h3>Delta i konversationen!</h3>
+                            <form name="comments-VALELAPENACRIAR-swe" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
+                                <input type="hidden" name="form-name" value="comments-VALELAPENACRIAR-swe" />
+                                <input type="hidden" name="article_slug" value="VALELAPENACRIAR" /> <!-- AÑADIDO -->
+                                <input type="hidden" name="article_title" value="Familjen - samhällets grundbult (SWE)" /> <!-- AÑADIDO -->
+                                <p class="hidden" style="display:none;"><label>Fyll inte i esto si eres humano: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                                <input type="text" name="name" placeholder="Namn" required>
+                                <input type="email" name="email" placeholder="E-post" required>
+                                <textarea name="comment" placeholder="Kommentar" required></textarea>
+                                <button type="submit" class="btn btn-primary">Skicka kommentar</button>
+                            </form>
+                        </div>
                         </div>
                     </div> <!-- Fin de articulos-main-swe -->
                     <aside class="articulos-sidebar articulos-sidebar-swe">
@@ -1839,14 +1824,12 @@ Nästa gång du ser en tonåring “koppla bort” sin omgivning, skyll inte på
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
-    // `pages` will be used to generically hide all before showing the correct one.
-    // const pages = document.querySelectorAll('.page'); // No longer needed directly this way by switchPage
     const openModalBtn = document.getElementById('openSubscribeModal');
     const closeModalBtn = document.getElementById('closeSubscribeModal');
     const subscribeModal = document.getElementById('subscribeModal');
     const langSpaBtn = document.getElementById('lang-spa');
     const langSweBtn = document.getElementById('lang-swe');
-    const hamburger = document.querySelector(".hamburger"); // Get hamburger later
+    const hamburger = document.querySelector(".hamburger");
     const navUl = document.querySelector("nav ul");
 
     // Footer year
@@ -1855,11 +1838,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Store the current conceptually active page (generic ID, e.g., "home")
     let currentActiveGenericPageId = 'home'; // Default
 
-    // Article specific selectors - assuming sidebar content is switched by data-lang attributes
-    // or the sidebar itself is duplicated per language (current HTML has duplicated sidebars).
-    // We need event listeners on ALL such links.
+    // Article specific selectors
     const allArticuloNavLinks = document.querySelectorAll('.articulos-sidebar .articulo-nav-link');
-    const allArticuloContentDivs = document.querySelectorAll('.articulos-main .articulo-contenido');
+    // We don't need allArticuloContentDivs as a global, but we use it inside showArticle.
+
+    // Mapeo de los data-target del sidebar a los slugs que usarás para los archivos JSON.
+    // **¡IMPORTANTE!** Asegúrate de que estos slugs coincidan EXACTAMENTE con:
+    // 1. El 'value' del input hidden 'article_slug' en cada formulario de comentarios.
+    // 2. El nombre del archivo JSON de comentarios (ej: AMN1.json, 20MANERAS.json).
+    const ARTICLE_SLUG_MAP = {
+        'articulo-content-amnesia': 'AMN1',
+        'articulo-content-20maneras': '20MANERAS',
+        'articulo-content-superaransiedad': 'SUPERARANSIEDAD',
+        'articulo-content-educacionrelaciones': 'EDUCACIONRELACIONES',
+        'articulo-content-vale-la-pena-criar': 'VALELAPENACRIAR',
+        // Añade aquí más mappings si tienes otros artículos
+        // Ejemplo: 'articulo-content-nuevo-articulo': 'NUEVOARTICULO',
+    };
 
 
     function setLanguage(lang) {
@@ -1939,6 +1934,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentActiveGenericPageId === 'articulos') {
             // Find the currently "active" generic article target
             let activeGenericArticleTarget = null;
+            // Check in both old and new lang sidebars for an active article link
             const activeArticleLink = document.querySelector(`#articulos-${oldLang} .articulos-sidebar .articulo-nav-link.active-articulo, #articulos-${lang} .articulos-sidebar .articulo-nav-link.active-articulo`);
             if (activeArticleLink) {
                 activeGenericArticleTarget = activeArticleLink.dataset.target;
@@ -1977,7 +1973,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === genericTargetHref || (genericTargetHref.startsWith(link.getAttribute('href')) && link.getAttribute('href') === '#articulos' && genericTargetHref.includes('/')) ) {
+            // Check for direct match or if it's the #articulos link and we're navigating to a specific article
+            if (link.getAttribute('href') === genericTargetHref || (genericTargetHref.startsWith('#articulos/') && link.getAttribute('href') === '#articulos') ) {
                  link.classList.add('active');
             }
         });
@@ -1993,7 +1990,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (newGenericId === 'articulos') {
             const hashParts = genericTargetHref.split('/'); // genericTargetHref might be like #articulos/article-slug
             if (hashParts.length > 1 && hashParts[0] === '#articulos') {
-                articleToLoadFromHash = hashParts[1];
+                articleToLoadFromHash = hashParts[1]; // This is the data-target slug (e.g., "articulo-content-amnesia")
             }
             showArticle(articleToLoadFromHash); // Will default to first if null
         }
@@ -2001,13 +1998,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update browser history (use genericTargetHref for simplicity, or build specific hash for articles)
         if (history.pushState) {
             if (newGenericId === 'articulos') {
-                const activeArticleLink = document.querySelector(`#articulos-${currentLang} .articulos-sidebar .articulo-nav-link.active-articulo`);
+                // Determine the correct genericArticleId to use for the hash
                 let articleSlugForHash = articleToLoadFromHash;
-                if (!articleSlugForHash && activeArticleLink) {
-                    articleSlugForHash = activeArticleLink.dataset.target;
-                } else if (!articleSlugForHash) { // Default to first if still none
-                    const firstSidebarLink = document.querySelector(`#articulos-${currentLang} .articulos-sidebar .articulo-nav-link`);
-                    if (firstSidebarLink) articleSlugForHash = firstSidebarLink.dataset.target;
+                if (!articleSlugForHash) {
+                    const activeArticleLink = document.querySelector(`#articulos-${currentLang} .articulos-sidebar .articulo-nav-link.active-articulo`);
+                    if (activeArticleLink) {
+                        articleSlugForHash = activeArticleLink.dataset.target;
+                    } else { // Fallback to first if still none
+                        const firstSidebarLink = document.querySelector(`#articulos-${currentLang} .articulos-sidebar .articulo-nav-link`);
+                        if (firstSidebarLink) articleSlugForHash = firstSidebarLink.dataset.target;
+                    }
                 }
                 if (articleSlugForHash) history.pushState(null, null, `#articulos/${articleSlugForHash}`);
                 else history.pushState(null, null, `#articulos`);
@@ -2024,8 +2024,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentLang = localStorage.getItem('preferredLanguage') || 'spa';
         const activeArticulosPage = document.getElementById('articulos-' + currentLang);
         if (!activeArticulosPage || !activeArticulosPage.classList.contains('active')) {
-             // If the articles page itself is not active, don't do anything here.
-             // This function is primarily for when the articles page *is* active.
+             // Si la página de artículos no está activa, no se cargan los comentarios.
             return;
         }
 
@@ -2035,29 +2034,41 @@ document.addEventListener('DOMContentLoaded', () => {
             if (firstArticleLink) {
                 genericArticleId = firstArticleLink.dataset.target;
             } else {
-                return; // No articles in sidebar
+                return; // No hay artículos en el sidebar
             }
         }
 
-        // Hide all article content divs (both SPA and SWE versions)
-        allArticuloContentDivs.forEach(div => {
+        // Ocultar todos los divs de contenido de artículos para el idioma actual
+        // Iteramos sobre los divs de contenido de artículos del idioma activo para ocultarlos
+        document.querySelectorAll(`.articulos-main-${currentLang} .articulo-contenido`).forEach(div => {
             div.style.display = 'none';
         });
 
+        // Construir el ID del div del artículo a mostrar (ej: "articulo-content-amnesia-spa")
         const targetArticleDivId = genericArticleId + '-' + currentLang;
         const articleDivToShow = document.getElementById(targetArticleDivId);
 
         if (articleDivToShow) {
             articleDivToShow.style.display = 'block';
+
+            // Obtén el SLUG real para el archivo JSON usando el mapa
+            const articleJsonSlug = ARTICLE_SLUG_MAP[genericArticleId];
+
+            if (articleJsonSlug) {
+                // Construir el ID del contenedor de comentarios para el idioma actual
+                const commentsContainerId = `comments-${articleJsonSlug}-${currentLang}`;
+                loadCommentsForArticle(articleJsonSlug, commentsContainerId);
+            } else {
+                console.warn(`No se encontró un SLUG JSON para el ID del artículo: ${genericArticleId}`);
+            }
         }
 
-        // Update active class on sidebar links (for the current language's sidebar)
+        // Actualizar la clase activa en los enlaces del sidebar (para el sidebar del idioma actual)
         document.querySelectorAll(`#articulos-${currentLang} .articulos-sidebar .articulo-nav-link`).forEach(link => {
             link.classList.toggle('active-articulo', link.dataset.target === genericArticleId);
         });
         
-        // Update hash, only if articles page is active.
-        // switchPage already handles most hash updates. showArticle can refine it.
+        // Actualiza el hash de la URL para que se pueda compartir el enlace directo al artículo
         if (history.pushState && activeArticulosPage.classList.contains('active')) {
              history.pushState(null, null, `#articulos/${genericArticleId}`);
         }
@@ -2068,12 +2079,12 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const genericArticleTarget = link.dataset.target;
-            // Ensure the main #articulos page is active first (it should be if this link is visible)
+            // Asegura que la página principal de artículos esté activa primero (debería estar si este enlace es visible)
             if (!currentActiveGenericPageId.startsWith('articulos')) {
-                switchPage('#articulos'); // Switch to articles main page if not already there
+                switchPage('#articulos'); // Cambia a la página principal de artículos si no está ya allí
             }
             showArticle(genericArticleTarget);
-            // The hash is updated by showArticle
+            // El hash es actualizado por showArticle
         });
     });
 
@@ -2082,7 +2093,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage(preferredLang); // Apply language first
 
     let pageTargetFromHash = '#home';
-    let articleTargetFromHash = null;
+    let articleTargetFromHash = null; // This will hold the 'data-target' value from the sidebar
     const initialHash = window.location.hash;
 
     if (initialHash) {
@@ -2092,7 +2103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById(potentialPageIdBase + '-spa') || document.getElementById(potentialPageIdBase + '-swe')) {
             pageTargetFromHash = parts[0];
             if (parts[0] === '#articulos' && parts.length > 1) {
-                articleTargetFromHash = parts[1];
+                articleTargetFromHash = parts[1]; // Capture the specific article data-target slug
             }
         }
     }
@@ -2107,7 +2118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listener for nav links
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Prevent default link behavior
             const targetHref = link.getAttribute('href');
             
             if (link.classList.contains('internal-link')) { // For links like "Descubre Mas"
@@ -2124,7 +2135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.addEventListener('popstate', (event) => {
         let pageToSwitch = '#home';
-        let articleToSwitch = null;
+        let articleToSwitch = null; // This will hold the 'data-target' value from the sidebar
         const currentHash = window.location.hash;
 
         if (currentHash) {
@@ -2133,7 +2144,7 @@ document.addEventListener('DOMContentLoaded', () => {
              if (document.getElementById(potentialPageIdBasePop + '-spa') || document.getElementById(potentialPageIdBasePop + '-swe')) {
                 pageToSwitch = hashPartsPop[0];
                 if (hashPartsPop[0] === '#articulos' && hashPartsPop.length > 1) {
-                    articleToSwitch = hashPartsPop[1];
+                    articleToSwitch = hashPartsPop[1]; // Capture the specific article data-target slug
                 }
             }
         }
@@ -2171,21 +2182,26 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburgerElement.classList.toggle("open");
     });
 
-    // --- Comments for Amnesia (AMN1) ---
-    // This is a simplified version. Ideally, comment loading/submission would be tied to the
-    // specific language version of the article if comments are language-specific.
-    // Current script fetches a single 'AMN1.json', so comments will be shared.
+    // Función para cargar comentarios para un artículo específico
     function loadCommentsForArticle(slug, containerId) {
+        // Asegúrate de que esta URL base sea correcta para tu función de Netlify
         const commentsUrl = `https://storied-taffy-2c8d25.netlify.app/_data/comments/${slug}.json`;
         
-        fetch(commentsUrl + '?t=' + Date.now())
+        fetch(commentsUrl + '?t=' + Date.now()) // Añade un timestamp para evitar caché
           .then(response => {
-            if (!response.ok) { throw new Error('No se pudo cargar el archivo de comentarios para ' + slug); }
+            if (!response.ok) { 
+                // Si el archivo no existe (404), no lanzamos error, solo mostramos que no hay comentarios.
+                if (response.status === 404) {
+                    return []; // Retorna un array vacío para indicar que no hay comentarios.
+                }
+                throw new Error('Network response was not ok for ' + slug + ': ' + response.statusText); 
+            }
             return response.json();
           })
           .then(comments => {
             const container = document.getElementById(containerId);
-            if (!container) return;
+            if (!container) return; // Si el contenedor no existe en el DOM, salimos
+
             if (comments && comments.length > 0) {
               container.innerHTML = comments.map(comment => `
                 <div class="comment" style="border-bottom: 1px solid #eee; padding: 15px 0; margin-bottom: 15px;">
@@ -2203,7 +2219,7 @@ document.addEventListener('DOMContentLoaded', () => {
           .catch(error => {
             console.error('Error cargando comentarios para ' + slug + ':', error);
             const container = document.getElementById(containerId);
-            if(container) container.innerHTML = '<p style="color: #999;">Los comentarios no están disponibles en este momento.</p>';
+            if(container) container.innerHTML = '<p style="color: #999;">Los comentarios no están disponibles en este momento o ha ocurrido un error.</p>';
           });
     }
 
@@ -2213,26 +2229,29 @@ document.addEventListener('DOMContentLoaded', () => {
         return div.innerHTML;
     }
 
-    // Load comments for the default visible Amnesia article (SPA or SWE)
-    // This part is tricky because the content might not be "active" yet.
-    // We should load comments when an article becomes visible.
-    // For now, let's try loading for both -spa and -swe containers for AMN1
-    // if they exist, assuming comments are shared for AMN1 slug.
-    if(document.getElementById('comments-AMN1-spa')) loadCommentsForArticle('AMN1', 'comments-AMN1-spa');
-    if(document.getElementById('comments-AMN1-swe')) loadCommentsForArticle('AMN1', 'comments-AMN1-swe');
-
-    // Attach submit listeners to comment forms
-    document.querySelectorAll('form[name^="comments-AMN1"]').forEach(form => {
+    // Modificar el listener de envío de formularios para que sea genérico
+    // Ahora selecciona todos los formularios cuyo 'name' empieza con "comments-"
+    document.querySelectorAll('form[name^="comments-"]').forEach(form => {
         form.addEventListener('submit', function(e) {
-            const slug = this.querySelector('input[name="article_slug"]').value; // Should be 'AMN1'
-            const lang = this.name.includes('-spa') ? 'spa' : (this.name.includes('-swe') ? 'swe' : '');
-            const containerId = `comments-${slug}-${lang}`;
-            setTimeout(() => loadCommentsForArticle(slug, containerId), 3000);
+            // Netlify maneja el envío, no necesitamos e.preventDefault() aquí,
+            // pero si tuvieras una lógica de validación front-end compleja, la pondrías antes.
+
+            const articleSlug = this.querySelector('input[name="article_slug"]').value; // Obtiene el slug dinámicamente del hidden input
+            const lang = this.name.includes('-spa') ? 'spa' : (this.name.includes('-swe') ? 'swe' : ''); // Determina el idioma
+            const commentsContainerId = `comments-${articleSlug}-${lang}`; // Construye el ID del contenedor
+
+            // Recarga los comentarios después de un breve retraso
+            // Esto permite que Netlify procese el envío y que GitHub actualice el archivo JSON.
+            setTimeout(() => {
+                loadCommentsForArticle(articleSlug, commentsContainerId);
+                this.reset(); // Opcional: Limpiar el formulario después del envío exitoso
+            }, 3000); // 3 segundos de retraso, ajústalo si es necesario
         });
     });
-     // Placeholder for other article comment loading logic if needed for 20maneras, superaransiedad etc.
-    // Example: if(document.getElementById('commentsSection20maneras-spa')) loadCommentsForArticle('20MANERAS', 'commentsSection20maneras-spa');
-    // You'll need to define slugs for other articles and ensure their comment forms and containers follow the pattern.
+
+    // Las llamadas hardcodeadas a loadCommentsForArticle para AMN1 se han eliminado de aquí.
+    // Ahora, la función `showArticle()` se encarga de cargar los comentarios cuando se activa
+    // un artículo, ya sea por navegación normal o por el hash de la URL al cargar la página.
 });
 </script>
 </body>
