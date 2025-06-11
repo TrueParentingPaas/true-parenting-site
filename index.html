@@ -862,7 +862,7 @@
                     Tu navegador no soporta el tag de video.
                 </video>
                 <h1>¡Vamos sí se puede!</h1>
-                <p>Transforma tu familia con principios biblicos</p>
+                <p>Transforma tu familia con principios bíblicos</p>
                 <a href="#quienes-somos" class="btn btn-primary nav-link internal-link">DESCUBRE MÁS</a>
             </div>
             <div class="programs-section programs-section-spa">
@@ -1047,23 +1047,23 @@ En unik bok om svensk nutidshistoria.</p>
                             <p>Espero que este texto te sirva de antesala para nuestro plan de transcripción de mayo: Gratitud.</p>
                             <p><a href="https://drive.google.com/file/d/1KV43OfeVV6td9hN9m01ra-Gw6Hm7EnIO/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-link">Descarga el archivo AQUÍ</a></p>
                             <img src="/articulos/Plan_de_transcripcion_mayo.jpg" alt="Mayo Gratitud" style="width:100%; max-width:300px; margin:15px auto; display:block;">
-                            <div class="comments-section">
-                                <h3>Comentarios - Amnesia</h3>
-                                <div id="comments-AMN1-spa"> <!-- Unique ID for SPA comments -->
-                                    <p>Cargando comentarios...</p>
-                                </div>
-                                <h3>¡Únete a la conversación!</h3>
-                                <form name="comments-AMN1-spa" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form">
-                                    <input type="hidden" name="form-name" value="comments-AMN1-spa" />
-                                    <input type="hidden" name="article_slug" value="AMN1" /> <!-- Keep generic slug for data association -->
-                                    <input type="hidden" name="article_title" value="Amnesia (SPA)" />
-                                    <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p>
-                                    <input type="text" name="name" placeholder="Nombre" required>
-                                    <input type="email" name="email" placeholder="Correo electrónico (no se publicará)" required>
-                                    <textarea name="comment" placeholder="Comentario" required></textarea>
-                                    <button type="submit" class="btn btn-primary">Enviar comentario</button>
-                                </form>
+                        <div class="comments-section">
+                            <h3>Comentarios - Amnesia</h3>
+                            <div id="comments-AMN1-SPA"> <!-- CAMBIO: ID con -SPA -->
+                                <p>Cargando comentarios...</p>
                             </div>
+                            <h3>¡Únete a la conversación!</h3>
+                            <form name="comments-AMN1-SPA" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form">
+                                <input type="hidden" name="form-name" value="comments-AMN1-SPA" /> <!-- CAMBIO: form-name con -SPA -->
+                                <input type="hidden" name="article_slug" value="AMN1-SPA" /> <!-- CAMBIO CRUCIAL: slug con -SPA -->
+                                <input type="hidden" name="article_title" value="Amnesia (SPA)" />
+                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p>
+                                <input type="text" name="name" placeholder="Nombre" required>
+                                <input type="email" name="email" placeholder="Correo electrónico (no se publicará)" required>
+                                <textarea name="comment" placeholder="Comentario" required></textarea>
+                                <button type="submit" class="btn btn-primary">Enviar comentario</button>
+                            </form>
+                        </div>
                         </div>
                         <!-- Artículo 2: 20 maneras (SPA) -->
                         <div class="content-block articulo-contenido" id="articulo-content-20maneras-spa" style="display:none;">
@@ -1084,13 +1084,15 @@ En unik bok om svensk nutidshistoria.</p>
                             <p>Marleny</p>
                         <div class="comments-section">
                             <h3>Comentarios - 20 maneras...</h3>
-                            <div id="comments-20MANERAS-spa"></div> <!-- CAMBIO: ID estandarizado -->
+                            <div id="comments-20MANERAS-SPA"> <!-- CAMBIO: ID con -SPA -->
+                                <p>Cargando comentarios...</p>
+                            </div>
                             <h3>¡Únete a la conversación!</h3>
-                            <form name="comments-20MANERAS-spa" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
-                                <input type="hidden" name="form-name" value="comments-20MANERAS-spa" />
-                                <input type="hidden" name="article_slug" value="20MANERAS" /> <!-- AÑADIDO: Slug del artículo -->
-                                <input type="hidden" name="article_title" value="20 maneras de ayudar a los niños a amar la lectura (SPA)" /> <!-- AÑADIDO: Título del artículo -->
-                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                            <form name="comments-20MANERAS-SPA" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form">
+                                <input type="hidden" name="form-name" value="comments-20MANERAS-SPA" /> <!-- CAMBIO: form-name con -SPA -->
+                                <input type="hidden" name="article_slug" value="20MANERAS-SPA" /> <!-- CAMBIO CRUCIAL: slug con -SPA -->
+                                <input type="hidden" name="article_title" value="20 maneras de ayudar a los niños a amar la lectura (SPA)" />
+                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p>
                                 <input type="text" name="name" placeholder="Nombre" required>
                                 <input type="email" name="email" placeholder="Correo electrónico" required>
                                 <textarea name="comment" placeholder="Comentario" required></textarea>
@@ -1114,13 +1116,15 @@ En unik bok om svensk nutidshistoria.</p>
                              <img src="/articulos/Plan_de_transcripcion_abril.jpg" alt="Plan de transcripción de Abril" style="width:100%; max-width:400px; margin:15px auto; display:block;">
                         <div class="comments-section">
                             <h3>Comentarios - Superar la ansiedad</h3>
-                            <div id="comments-SUPERARANSIEDAD-spa"></div> <!-- CAMBIO: ID estandarizado -->
+                            <div id="comments-SUPERARANSIEDAD-SPA"> <!-- CAMBIO: ID con -SPA -->
+                                <p>Cargando comentarios...</p>
+                            </div>
                             <h3>¡Únete a la conversación!</h3>
-                            <form name="comments-SUPERARANSIEDAD-spa" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
-                                <input type="hidden" name="form-name" value="comments-SUPERARANSIEDAD-spa" />
-                                <input type="hidden" name="article_slug" value="SUPERARANSIEDAD" /> <!-- AÑADIDO -->
-                                <input type="hidden" name="article_title" value="Superar la ansiedad - Plan de transcripción de abril (SPA)" /> <!-- AÑADIDO -->
-                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                            <form name="comments-SUPERARANSIEDAD-SPA" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form">
+                                <input type="hidden" name="form-name" value="comments-SUPERARANSIEDAD-SPA" /> <!-- CAMBIO: form-name con -SPA -->
+                                <input type="hidden" name="article_slug" value="SUPERARANSIEDAD-SPA" /> <!-- CAMBIO CRUCIAL: slug con -SPA -->
+                                <input type="hidden" name="article_title" value="Superar la ansiedad - Plan de transcripción de abril (SPA)" />
+                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p>
                                 <input type="text" name="name" placeholder="Nombre" required>
                                 <input type="email" name="email" placeholder="Correo electrónico" required>
                                 <textarea name="comment" placeholder="Comentario" required></textarea>
@@ -1143,13 +1147,15 @@ En unik bok om svensk nutidshistoria.</p>
                             <p>Marleny.</p>
                         <div class="comments-section">
                             <h3>Comentarios - La educación es la ciencia...</h3>
-                            <div id="comments-EDUCACIONRELACIONES-spa"></div> <!-- CAMBIO: ID estandarizado -->
+                            <div id="comments-EDUCACIONRELACIONES-SPA"> <!-- CAMBIO: ID con -SPA -->
+                                <p>Cargando comentarios...</p>
+                            </div>
                             <h3>¡Únete a la conversación!</h3>
-                            <form name="comments-EDUCACIONRELACIONES-spa" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
-                                <input type="hidden" name="form-name" value="comments-EDUCACIONRELACIONES-spa" />
-                                <input type="hidden" name="article_slug" value="EDUCACIONRELACIONES" /> <!-- AÑADIDO -->
-                                <input type="hidden" name="article_title" value="La educación es la ciencia de las relaciones (SPA)" /> <!-- AÑADIDO -->
-                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                            <form name="comments-EDUCACIONRELACIONES-SPA" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form">
+                                <input type="hidden" name="form-name" value="comments-EDUCACIONRELACIONES-SPA" /> <!-- CAMBIO: form-name con -SPA -->
+                                <input type="hidden" name="article_slug" value="EDUCACIONRELACIONES-SPA" /> <!-- CAMBIO CRUCIAL: slug con -SPA -->
+                                <input type="hidden" name="article_title" value="La educación es la ciencia de las relaciones (SPA)" />
+                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p>
                                 <input type="text" name="name" placeholder="Nombre" required>
                                 <input type="email" name="email" placeholder="Correo electrónico" required>
                                 <textarea name="comment" placeholder="Comentario" required></textarea>
@@ -1169,13 +1175,15 @@ En unik bok om svensk nutidshistoria.</p>
                             <p>Texto adaptado de la enseñanza de Sugel Michelén, "Nuestra responsabilidad como padres" (<a href="#" class="btn-link">Enlace</a>)</p>
                         <div class="comments-section">
                             <h3>Comentarios - ¿Vale la pena criar...?</h3>
-                            <div id="comments-VALELAPENACRIAR-spa"></div> <!-- CAMBIO: ID estandarizado -->
+                            <div id="comments-VALELAPENACRIAR-SPA"> <!-- CAMBIO: ID con -SPA -->
+                                <p>Cargando comentarios...</p>
+                            </div>
                             <h3>¡Únete a la conversación!</h3>
-                            <form name="comments-VALELAPENACRIAR-spa" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form"> <!-- CAMBIO: name del formulario -->
-                                <input type="hidden" name="form-name" value="comments-VALELAPENACRIAR-spa" />
-                                <input type="hidden" name="article_slug" value="VALELAPENACRIAR" /> <!-- AÑADIDO -->
-                                <input type="hidden" name="article_title" value="¿Vale la pena criar a los hijos? (SPA)" /> <!-- AÑADIDO -->
-                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p> <!-- AÑADIDO: Honeypot -->
+                            <form name="comments-VALELAPENACRIAR-SPA" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="comment-form">
+                                <input type="hidden" name="form-name" value="comments-VALELAPENACRIAR-SPA" /> <!-- CAMBIO: form-name con -SPA -->
+                                <input type="hidden" name="article_slug" value="VALELAPENACRIAR-SPA" /> <!-- CAMBIO CRUCIAL: slug con -SPA -->
+                                <input type="hidden" name="article_title" value="¿Vale la pena criar a los hijos? (SPA)" />
+                                <p class="hidden" style="display:none;"><label>No llenes esto si eres humano: <input name="bot-field"></label></p>
                                 <input type="text" name="name" placeholder="Nombre" required>
                                 <input type="email" name="email" placeholder="Correo electrónico" required>
                                 <textarea name="comment" placeholder="Comentario" required></textarea>
