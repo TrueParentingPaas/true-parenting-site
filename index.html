@@ -2225,13 +2225,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
               `).join('');
             } else {
-              container.innerHTML = '<p style="color: #666; font-style: italic;">No hay comentarios aún. ¡Sé el primero en comentar!</p>';
+              container.innerHTML = '<p style="color: #666; font-style: italic;"> </p>';
             }
           })
           .catch(error => {
             console.error('Error cargando comentarios para ' + slug + ':', error);
             const container = document.getElementById(containerId);
-            if(container) container.innerHTML = '<p style="color: #999;">Los comentarios no están disponibles en este momento o ha ocurrido un error.</p>';
+            if(container) container.innerHTML = '<p style="color: #999;"> </p>';
           });
     }
 
